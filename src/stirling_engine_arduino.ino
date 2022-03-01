@@ -1,26 +1,27 @@
 /***********************************************
+
 UCL MechEng Y1 Stirling Engine Lab (Arduino Part)
 For information on usage, visit https://github.com/alxzhng/stirling_engine_code.
-Run this code as step
+
  ************************************************/
 #include <SoftwareSerial.h>
 
-// Settings
-unsigned long runTime = 5; // run time in minutes -- button can be used to interrupt this
-int baudrate = 9600;       // https://www.arduino.cc/en/Reference/SoftwareSerialBegin
-
 // Pin Definitions
 #define buttonPin 3       // pin connected to button (digital input)
-#define ledPin 13         // pin connected to LED
 #define irPin 5           // pin connected to IR sensor
+#define ledPin 13           // pin connected to green LED
 #define tempPin1 A0       // pin connected to temp sensor 1 (analogue input)
 #define tempPin2 A1       // temp sensor 2
+
+// Options
+unsigned long runTime = 10;  // run time in minutes -- button can be used to interrupt this
+long baudrate = 74880;       // frequency at which data is saved -- https://www.arduino.cc/en/Reference/SoftwareSerialBegin
 
 // Initialize input variables
 int irState;              // ir sensor trigger
 int buttonState;          // button to start/stop measurement
 unsigned long startTime, currentTime, delta_t;
-float rpm, period, freq;  // time taken for one revolution
+float period, freq;       // time taken for one revolution
 float temp1, temp2;       // temperature readings
 
 void setup() {
@@ -31,8 +32,10 @@ void setup() {
   pinMode(tempPin1, INPUT);
   pinMode(tempPin2, INPUT);
   pinMode(buttonPin, INPUT);
+  pinMode(ledPin, OUTPUT);
 
-  digitalWrite(irPin, HIGH);
+  digitalWrite(irPin, LOW);
+  digitalWrite(ledPin, LOW);
 
   Serial.begin(baudrate);
   Serial.println("Press button to start taking measurements.");
@@ -53,20 +56,31 @@ void loop() {
   }
 
   Serial.println("3...");
-  delay(1000);
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  delay(500);
   Serial.println("2...");
-  delay(1000);
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  delay(500);
   Serial.println("1...");
-  delay(1000);
-  Serial.println("Writing time (ms), temp 1 (degC), temp 2 (degC), trigger");
-  Serial.println("Press button again to terminate.")
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  delay(500);
+  Serial.println("Writing data. Press button again to terminate.");
 
-  startTime = millis();
+  startTime = millis(); // take start time 
+
+  digitalWrite(ledPin, HIGH); // set state indication high 
+
   while (true)
   {
     getTemperature(); // take temperature readings
 
-    irState = digitalRead(irPin); // take ir beam break -- 0 if broken, 1 if unbroken
+    irState = digitalRead(irPin); // take ir beam break -- 1 if broken, 0 if unbroken
 
     currentTime = millis(); // update timer
     delta_t = currentTime - startTime; // time elapsed since measurement start, in milliseconds
@@ -90,6 +104,7 @@ void loop() {
   }
 
   Serial.println("Done taking measurements.");
+  digitalWrite(ledPin, LOW);
 
   // Go back to doing nothing
   while (true)
@@ -119,23 +134,3 @@ void sleep()
 {
 
 }
-
-/*
-void getRPM()
-{
-  irState = digitalRead(irPin);
-
-  if (irState == HIGH)
-  {
-    rpm = rpm;
-  }
-  // beam broken, one full revolution
-  else if (irState == LOW)
-  {
-    period = (float) currentTime - (float) previousTime;
-    previousTime = currentTime;
-    freq = 1/(period/1000.0); // cycles per second
-    rpm = freq * 60;
-  }
-}
-*/
