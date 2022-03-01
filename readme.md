@@ -25,7 +25,7 @@ This two part code, consisting of an Arduino part 'stirling_engine_arduino.uno' 
 4. Under 'Tools' in the top bar, make sure the correct board and port are selected. Take note of the port number. 
 5. Check that the pins are defined correctly.
 6. Upload the .ino code to the Arduino.
-7. Launch Jupyter Notebook from the Anaconda Navigator or Anaconda Prompt, navigate to the group's folder and open the .ipynb file. 
+7. Launch Jupyter Notebook, navigate to the group's folder and open the .ipynb file. 
 8. Edit the Settings cell and run it. 
 9. Run the next cell and follow instructions printed onto the console to take measurements. The code will take measurements for a full 10 minutes by default, but can be stopped if the red button is pressed at any time. 
 10. When done taking measurements, navigate to the group folder and export the .csv file saved there.
