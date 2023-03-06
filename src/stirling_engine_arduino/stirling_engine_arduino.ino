@@ -7,11 +7,11 @@ For information on usage, visit https://github.com/alxzhng/stirling_engine_code.
 
 //---------------------- SET UP ------------------------//
 // Pin Definitions
-#define buttonPin 3          // pin connected to button (digital input)
+#define buttonPin 3          // pin connected to button 
 #define irSensorPin 5        // pin connected to IR sensor
-#define ledPin 13            // pin connected to green LED
-#define tempPin1 A0          // pin connected to temp sensor 1 (analogue input)
-#define tempPin2 A1          // temp sensor 2
+#define ledPin 13            // pin connected to green LED (internal Arduino connection)
+#define tempPin1 A0          // pin connected to temp sensor 1 (top)
+#define tempPin2 A1          // pin connected to temp sensor 2 (bottom)
 
 // Options
 unsigned long runTime = 10;  // run time in minutes -- button can be used to interrupt this
@@ -22,8 +22,7 @@ int irState;              // ir sensor trigger
 int buttonState;          // button to start/stop measurement
 unsigned long startTime, currentTime, delta_t;
 float period, freq;       // time taken for one revolution
-float temp1, temp2;       // temperature readings
-int volt1, volt2;
+int volt1, volt2;         // temp sensor voltage readings
 
 // Storage variables for printing to serial
 char str[100];
@@ -84,8 +83,8 @@ void loop() {
   while (true)
   {
     // Read input pins
-    volt1 = analogRead(tempPin1);       // Temperature sensor 1 (upper)
-    volt2 = analogRead(tempPin2);       // Temperature sensor 2 (lower)
+    volt1 = analogRead(tempPin1);       // Temperature sensor 1 voltage (upper)
+    volt2 = analogRead(tempPin2);       // Temperature sensor 2 voltage (lower)
     irState = digitalRead(irSensorPin); // IR receiver state -- 0 if broken, 1 if broken
 
     currentTime = millis();             // Update timer counter
