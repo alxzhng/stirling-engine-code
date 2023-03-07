@@ -25,6 +25,8 @@ More information can be found on the lab handout (https://alxzhng.notion.site/St
         * 1 x pushbutton 
 
 ## Usage
+Detailed instructions are on the lab handout available on Notion, or as a pdf from Moodle.
+
 1. Download the .zip file from this page and unzip it to the location you want the data files to be saved. It should contain a src folder with the scripts 'stirling_engine_arduino.ino' and 'stirling_engine_csvwrite.ipynb'. 
 2. Connect the Arduino board to the laptop with the usb cable. 
 3. Open the .ino file in Arduino IDE. If you are prompted to create a folder, click on OK. 
