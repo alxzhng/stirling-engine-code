@@ -43,6 +43,7 @@ Before a session:
 - Check the required software is installed.
 - Make sure you're familiar with the workflow! Run it yourself to see if it works.
 - Get people to trial the workflow and verify the trigger works by manually spinning the wheel, before putting hot water and running the full 10 minutes. 
+
 After a session:
 - Clear the old files and download a fresh file from this repo for each group running the lab.
 - Reset the Arduino board after each group by uploading a blank sketch.
