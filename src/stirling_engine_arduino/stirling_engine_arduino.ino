@@ -22,7 +22,7 @@ int irState;              // ir sensor trigger
 int buttonState;          // button to start/stop measurement
 unsigned long startTime, currentTime, delta_t;
 float period, freq;       // time taken for one revolution
-int volt1, volt2;         // temp sensor voltage readings
+int tPin1, tPin2;         // temp sensor voltage readings
 
 // Storage variables for printing to serial
 char str[100];
@@ -83,15 +83,15 @@ void loop() {
   while (true)
   {
     // Read input pins
-    volt1 = analogRead(tempPin1);       // Temperature sensor 1 voltage (upper)
-    volt2 = analogRead(tempPin2);       // Temperature sensor 2 voltage (lower)
+    tPin1 = analogRead(tempPin1);       // Temperature sensor 1 voltage (upper)
+    tPin2 = analogRead(tempPin2);       // Temperature sensor 2 voltage (lower)
     irState = digitalRead(irSensorPin); // IR receiver state -- 0 if broken, 1 if broken
 
     currentTime = millis();             // Update timer counter
     delta_t = currentTime - startTime;  // Time elapsed since measurement start, in milliseconds
 
     // Store sensor readings as formatted string
-    sprintf(str, "%6ld,%d,%d,%d", delta_t, volt1, volt2, irState);
+    sprintf(str, "%6ld,%d,%d,%d", delta_t, tPin1, tPin2, irState);
     
     // Print string to serial
     Serial.println(str);
