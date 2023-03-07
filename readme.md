@@ -1,7 +1,10 @@
-# UCL MechEng Y1 Stirling Engine Lab 2022
+# UCL MechEng Y1 Stirling Engine Lab 2023
 
-## Version History 
-V1.0.: 
+## Changelog
+- [24/02/2022] Initial commit. Created 2 part code for stirling engine lab data collection with Arduino. 
+- [01/03/2022] Final release version for the 2022 lab.
+- [23/02/2023] Updated for 2023 lab. Issue with trigger sensor noisy data fixed (sensor read delay suspected).
+- [06/03/2023] Final release version for the 2023 lab.
 
 ## Description
 This two part code, consisting of an Arduino part 'stirling_engine_arduino.uno' and Python part 'stirling_engine_csvwrite.ipynb', was written to facilitate data acquisition from the sensors connected to the Stirling Engine to measure performance characteristics. The sensors are connected to an Arduino Uno, which reads the sensor data and sends it to a python script over serial communication, which then writes it to a .csv file for convenient saving and post-processing of results. There are 2 temperature sensors measuring the bottom and top plates of the working fluid enclosure, and an infrared beam break sensor that registers when a taped spoke on the flywheel passes between the IR bulb and receiver. The code can either be ran for a fixed amount of time, or measurements can be start and stopped with the push of a button. 
