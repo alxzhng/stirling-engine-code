@@ -25,6 +25,8 @@ More information can be found on the lab handout (https://alxzhng.notion.site/St
         * 1 x pushbutton 
 
 ## Usage
+Detailed instructions are on the lab handout available on Notion, or as a pdf from Moodle.
+
 1. Download the .zip file from this page and unzip it to the location you want the data files to be saved. It should contain a src folder with the scripts 'stirling_engine_arduino.ino' and 'stirling_engine_csvwrite.ipynb'. 
 2. Connect the Arduino board to the laptop with the usb cable. 
 3. Open the .ino file in Arduino IDE. If you are prompted to create a folder, click on OK. 
@@ -39,5 +41,11 @@ More information can be found on the lab handout (https://alxzhng.notion.site/St
 If another reading is required, press the reset button on the Arduino or reupload the .ino code, change the file name and run the two cells again.
 
 ## Instructions to mentors
-- Make sure to download a fresh file from this repo for each group running the lab.
+Before a session: 
+- Check the required software is installed.
+- Make sure you're familiar with the workflow! Run it yourself to see if it works.
+- Get people to trial the workflow and verify the trigger works by manually spinning the wheel, before putting hot water and running the full 10 minutes. 
+
+After a session:
+- Clear the old files and download a fresh file from this repo for each group running the lab.
 - Reset the Arduino board after each group by uploading a blank sketch.
