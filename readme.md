@@ -11,18 +11,11 @@ This two part code, consisting of an Arduino part 'stirling_engine_arduino.uno' 
 
 More information can be found on the lab handout (https://alxzhng.notion.site/Stirling-Engine-Lab-2023-440d19d6e7ce431db35d2359fb01bdf8)
 
-## Requirements 
-* Software 
-    * Arduino IDE (https://www.arduino.cc/en/software)
-    * Anaconda (https://www.anaconda.com/products/individual)
-        * with Jupyter Notebook
-* Hardware 
-    * Arduino Uno 
-        * Built in LED at pin 13
-    * Sensors
-        * 2 x TMP36 temperature sensors
-        * 1 x IR beam break sensors
-        * 1 x pushbutton 
+## Software Requirements  
+* Arduino IDE (https://www.arduino.cc/en/software)
+* Anaconda3 (https://www.anaconda.com/products/individual)
+   * Jupyter Notebook
+   * Anaconda Prompt
 
 ## Usage
 Detailed instructions are on the lab handout available on Notion, or as a pdf from Moodle.
